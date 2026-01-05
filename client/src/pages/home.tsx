@@ -236,7 +236,7 @@ export default function Home() {
           <Separator className="bg-primary-foreground/20 w-1/3 mx-auto mb-8" />
           
           <p className="text-sm text-primary-foreground/60 font-sans">
-            &copy; 2025 Oreon Community. Not affiliated with Mojang AB.
+            &copy; 2026 Oreon Community. Not affiliated with Mojang AB.
           </p>
         </div>
       </footer>

@@ -208,7 +208,7 @@ export default function Home() {
             </Button>
             
             <Button asChild size="lg" variant="outline" className="h-auto py-4 px-8 border-2 border-primary/20 hover:border-primary hover:bg-primary/5 font-serif text-lg group">
-              <a href="https://oreonproject.org" target="_blank" rel="noopener noreferrer">
+              <a href="https://oreonhq.com" target="_blank" rel="noopener noreferrer">
                 <Globe className="mr-2 h-6 w-6 text-primary group-hover:text-primary transition-colors" />
                 Main Website
               </a>

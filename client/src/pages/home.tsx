@@ -11,13 +11,14 @@ import {
   Sparkles,
   ChevronDown
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 function AccordionItem({ question, answer, isOpen, onClick }) {
   return (
     <div className="border-b border-slate-700">
       <button
         onClick={onClick}
-        className="w-full py-4 px-2 flex items-center justify-between text-left hover:text-blue-400 transition-colors"
+        className="w-full py-4 px-2 flex items-center justify-between text-left hover:text-blue-400 transition-colors cursor-pointer"
       >
         <span className="font-semibold text-lg pr-4">{question}</span>
         <ChevronDown 
@@ -51,53 +52,59 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white selection:bg-blue-500/20">
-      {/* Hero Section */}
       <section className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-900 to-slate-950" />
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE0aDJ2Mmgtdi0yem0wIDRoMnYyaC0ydi0yem0wIDRoMnYyaC0ydi0yem0wIDRoMnYyaC0ydi0yem0wIDRoMnYyaC0ydi0yem0wIDRoMnYyaC0ydi0yem0wIDRoMnYyaC0ydi0yem0wIDRoMnYyaC0ydi0yem0wIDRoMnYyaC0ydi0yem0wIDRoMnYyaC0ydi0yeiIvPjwvZz48L2c+PC9zdmc+')] opacity-40" />
+          <img 
+            src="/generated_images/voxel_adventurer_sitting_on_hill.png"
+            alt="Adventurer sitting on a hill" 
+            className="w-full h-full object-cover brightness-75"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-slate-950" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="inline-block mb-4 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full">
-            <span className="text-blue-400 text-sm font-medium">Now Supporting Hytale!</span>
-          </div>
-          
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
-            OreonMC
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-300 font-light mb-4 max-w-3xl mx-auto">
-            Your cross-platform gaming community for Minecraft and the upcoming Hytale.
-          </p>
-          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-            Experience seamless survival gameplay today on Minecraft, and be ready for the next evolution in block-based adventures.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-            <button 
-              onClick={copyIp}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-8 py-6 rounded-lg shadow-xl transition-all hover:scale-105 hover:shadow-blue-500/50 flex items-center gap-2"
-            >
-              {copied ? "Copied!" : "Copy Minecraft IP"}
-              <Copy className="h-5 w-5" />
-            </button>
-            <a 
-              href="https://discord.gg/K3HvRmcayK" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-slate-800/50 hover:bg-slate-700/50 border-2 border-slate-700 text-white font-semibold text-lg px-8 py-6 rounded-lg shadow-xl transition-all hover:scale-105 backdrop-blur-sm flex items-center gap-2"
-            >
-              Join Discord
-              <MessageCircle className="h-5 w-5" />
-            </a>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-block mb-4 px-4 py-2 bg-blue-500/30 border border-blue-500/50 rounded-full backdrop-blur-sm">
+              <span className="text-blue-300 text-sm font-medium">Now Supporting Hytale!</span>
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
+              OreonMC
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-300 font-light mb-4 max-w-3xl mx-auto">
+              Your cross-platform gaming community for Minecraft and Hytale.
+            </p>
+            <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+              Experience seamless survival gameplay today on Minecraft, and be ready for the next evolution in block-based adventures.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+              <button 
+                onClick={copyIp}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-8 py-6 rounded-lg shadow-xl transition-all hover:scale-105 hover:shadow-blue-500/50 flex items-center gap-2 cursor-pointer"
+              >
+                {copied ? "Copied!" : "Copy Minecraft IP"}
+                <Copy className="h-5 w-5" />
+              </button>
+              <a 
+                href="https://discord.gg/K3HvRmcayK" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-slate-800/50 hover:bg-slate-700/50 border-2 border-slate-700 text-white font-semibold text-lg px-8 py-6 rounded-lg shadow-xl transition-all hover:scale-105 backdrop-blur-sm flex items-center gap-2"
+              >
+                Join Discord
+                <MessageCircle className="h-5 w-5" />
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Main Content */}
       <main className="container mx-auto px-4 py-16 md:py-24 max-w-5xl">
-        
-        {/* Features Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           <div className="bg-slate-800/50 border border-slate-700 rounded-lg backdrop-blur-sm shadow-xl hover:shadow-2xl hover:bg-slate-800/70 transition-all duration-300 p-6">
             <div className="text-center">
@@ -143,7 +150,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-2 text-blue-100">Hytale Ready</h3>
               <p className="text-blue-200/80 text-sm">
-                We'll be there on day one when Hytale launches!
+                We already Have A Hytale Server!
               </p>
             </div>
           </div>
@@ -151,7 +158,6 @@ export default function Home() {
 
         <div className="bg-slate-700/50 h-px mb-24" />
 
-        {/* FAQ Section */}
         <section className="mb-24">
           <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
             Frequently Asked Questions
@@ -185,7 +191,7 @@ export default function Home() {
 
               <AccordionItem
                 question="What about Hytale support?"
-                answer="We're committed to supporting Hytale from day one of its release! Our community will expand to include Hytale servers, and we're already planning features and gameplay modes. Stay tuned to our Discord for updates and announcements as we get closer to Hytale's launch."
+                answer="We have already Released a Hytale Server ready for you to enjoy!"
                 isOpen={openFaq === 3}
                 onClick={() => toggleFaq(3)}
               />
@@ -239,11 +245,28 @@ export default function Home() {
                 isOpen={openFaq === 8}
                 onClick={() => toggleFaq(8)}
               />
+
+              <AccordionItem
+                question="How do I join the Hytale server?"
+                answer={
+                  <div>
+                    <p className="mb-3">Connect to our Hytale server by following these steps:</p>
+                    <ol className="list-decimal list-inside space-y-2 ml-2">
+                      <li>Open Hytale and go to <span className="font-bold text-white">SERVERS</span></li>
+                      <li>Click <span className="font-bold text-white">ADD SERVER</span></li>
+                      <li>Enter the connection address: <span className="font-mono bg-slate-900 px-2 py-1 rounded text-blue-400">hytale.oreonmc.org</span></li>
+                      <li>Choose any name you want for the server</li>
+                      <li>Click <span className="font-bold text-white">ADD SERVER</span> and you're ready to play!</li>
+                    </ol>
+                  </div>
+                }
+                isOpen={openFaq === 9}
+                onClick={() => toggleFaq(9)}
+              />
             </div>
           </div>
         </section>
 
-        {/* Links Section */}
         <section className="text-center mb-24">
           <h2 className="text-4xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
             Support The Project
@@ -276,13 +299,12 @@ export default function Home() {
               className="h-auto py-4 px-8 border-2 border-green-500/20 hover:border-green-500 hover:bg-green-500/10 bg-slate-800/50 rounded-lg text-lg group flex items-center gap-2 transition-all"
             >
               <Globe className="h-6 w-6 text-green-400 group-hover:text-green-300 transition-colors" />
-              Live Map
+              Minecraft Live Map
             </a>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="bg-slate-900 border-t border-slate-800 py-12 mt-auto">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">

@@ -230,7 +230,7 @@ export default function Home() {
           <h2 className="text-2xl font-serif mb-4">OreonMC</h2>
           <div className="flex items-center justify-center gap-2 text-primary-foreground/80 mb-8 hover:text-white transition-colors">
             <Mail className="h-4 w-4" />
-            <a href="mailto:taxmalalas0001@proton.me">taxmalalas0001@proton.me</a>
+            <a href="mailto:admin@oreonmc.org">admin@oreonmc.org</a>
           </div>
           
           <Separator className="bg-primary-foreground/20 w-1/3 mx-auto mb-8" />
